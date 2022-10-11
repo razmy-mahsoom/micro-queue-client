@@ -1,1 +1,5 @@
-
+microq:
+  username: 'guest'
+  password: 'guest'
+  host: 'localhost'
+  port: '15675'
