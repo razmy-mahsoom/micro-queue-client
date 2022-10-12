@@ -1,5 +1,6 @@
-microq:
-  username: 'guest'
-  password: 'guest'
-  host: 'localhost'
-  port: '15675'
+micro-q-config:
+  connection:
+    username: 'guest'
+    password: 'guest'
+    host: 'localhost'
+    port: 15676
