@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
-@Qualifier("defaultConnection")
+//@Configuration
+//@Qualifier("defaultConnection")
 public class DefaultConnection implements MQConnection {
     @Value("${micro-q-config.connection.username}")
     private String username;

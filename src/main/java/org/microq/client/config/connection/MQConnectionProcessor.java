@@ -15,7 +15,6 @@ import java.net.Socket;
 public class MQConnectionProcessor {
 
     @Autowired
-    @Qualifier("defaultConnection")
     private MQConnection connection;
 
     @PostConstruct

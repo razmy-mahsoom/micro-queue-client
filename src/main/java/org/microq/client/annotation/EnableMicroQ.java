@@ -1,7 +1,6 @@
 package org.microq.client.annotation;
 
 import org.microq.client.MicroQueueClientApplication;
-import org.microq.client.config.connection.MQConnectionProcessor;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.ElementType;
