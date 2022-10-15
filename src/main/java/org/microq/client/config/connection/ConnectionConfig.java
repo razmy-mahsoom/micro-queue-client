@@ -44,16 +44,6 @@ public class ConnectionConfig {
         }
     }
 
-    @PostConstruct
-    public void run(){
-        Map<String, Chaining> beansOfType = applicationContext.getBeansOfType(Chaining.class);
-        beansOfType.forEach((s, chaining) -> {
-            System.out.println("Bean Name "+s);
-            Interchange interchange = chaining.getInterchange();
-            System.out.println(interchange.getInterchangeName());
-        });
-
-    }
 
 }
 
