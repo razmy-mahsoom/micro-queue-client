@@ -3,6 +3,7 @@ package org.microq.client.config.connection;
 import ch.qos.logback.classic.pattern.MessageConverter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.microq.client.exception.MicroQueueGeneralException;
 import org.microq.support.auditor.Chaining;
 import org.microq.support.auditor.Interchange;
 import org.microq.support.config.connection.MQConnection;
@@ -40,8 +41,9 @@ public class ConnectionConfig {
             log.info("Connected to MQ on {}",socket.getLocalSocketAddress());
             return socket;
         } catch (IOException e) {
-            throw new RuntimeException(e);
+           throw new MicroQueueGeneralException("");
         }
+
     }
 
 
