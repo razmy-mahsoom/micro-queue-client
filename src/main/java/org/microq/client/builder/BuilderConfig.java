@@ -2,7 +2,10 @@ package org.microq.client.builder;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.microq.support.annotations.ClientType;
+import org.microq.support.annotations.MessageType;
 import org.microq.support.auditor.Chaining;
+import org.microq.support.auditor.MQMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
@@ -32,8 +35,16 @@ public class BuilderConfig {
         Map<String, Chaining> beansOfType = applicationContext.getBeansOfType(Chaining.class);
         beansOfType.forEach((s, chaining) -> {
                 try {
-                    String s1 = mapper.writeValueAsString(chaining);
-                    bufferedWriter.write(s1);
+//                    String s1 = mapper.writeValueAsString(chaining);
+//                    bufferedWriter.write(s1);
+//                    bufferedWriter.newLine();
+//                    bufferedWriter.flush();
+                    MQMessage message = MQMessage.builder()
+                            .messageType(MessageType.CHAIN_CONFIG)
+                            .payload(chaining)
+                            .build();
+                    String s2 = mapper.writeValueAsString(message);
+                    bufferedWriter.write(s2);
                     bufferedWriter.newLine();
                     bufferedWriter.flush();
                 } catch (JsonProcessingException e) {
