@@ -14,7 +14,9 @@ import javax.annotation.PostConstruct;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.net.Socket;
+import java.time.LocalDateTime;
 import java.util.Map;
+import java.util.UUID;
 
 @Configuration
 public class BuilderConfig {
@@ -42,6 +44,8 @@ public class BuilderConfig {
                     MQMessage message = MQMessage.builder()
                             .messageType(MessageType.CHAIN_CONFIG)
                             .payload(chaining)
+                            .messageUUID(UUID.randomUUID().toString())
+                            .timestamp(LocalDateTime.now())
                             .build();
                     String s2 = mapper.writeValueAsString(message);
                     bufferedWriter.write(s2);
