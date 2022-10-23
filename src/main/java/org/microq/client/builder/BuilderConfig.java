@@ -37,15 +37,10 @@ public class BuilderConfig {
         Map<String, Chaining> beansOfType = applicationContext.getBeansOfType(Chaining.class);
         beansOfType.forEach((s, chaining) -> {
                 try {
-//                    String s1 = mapper.writeValueAsString(chaining);
-//                    bufferedWriter.write(s1);
-//                    bufferedWriter.newLine();
-//                    bufferedWriter.flush();
+
                     MQMessage message = MQMessage.builder()
                             .messageType(MessageType.CHAIN_CONFIG)
                             .payload(chaining)
-                            .messageUUID(UUID.randomUUID().toString())
-                            .timestamp(LocalDateTime.now())
                             .build();
                     String s2 = mapper.writeValueAsString(message);
                     bufferedWriter.write(s2);
